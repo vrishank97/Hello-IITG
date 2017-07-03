@@ -2,41 +2,31 @@ import React from 'react';
 import {
   AppRegistry,
   Text,
+  View,
+  Button,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'Hello IITG',
   };
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View>
-        <Text>Hello, Chat App!</Text>
         <Button
-          onPress={() => navigate('Webmail')}
-          title="Webmail"
-        />
-        <Button
-          onPress={() => navigate('TimeTable')}
-          title="Time Table"
-        />
-        <Button
-          onPress={() => navigate('CampusMap')}
-          title="Campus Map"
-        />
-        <Button
-          onPress={() => navigate('BusTiming')}
-          title="Bus Timing"
+          onPress={() => navigate('Chat')}
+          title="Chat with Lucy"
         />
       </View>
     );
   }
+}
 
 class ChatScreen extends React.Component {
   static navigationOptions = {
-    title: 'Hello IITG',
+    title: 'Chat with Lucy',
   };
   render() {
     return (
@@ -47,8 +37,9 @@ class ChatScreen extends React.Component {
   }
 }
 
-
-const SimpleApp = StackNavigator({
+const IITG = StackNavigator({
   Home: { screen: HomeScreen },
   Chat: { screen: ChatScreen },
 });
+
+AppRegistry.registerComponent('IITG', () => IITG);
